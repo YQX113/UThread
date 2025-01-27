@@ -77,29 +77,6 @@ UNREAL THREADMANAGE
   SYNCTASK_Lambda(LambdaFunction, Vars)
 ```
 
-## CorotinesManage
-```c++
-  TArray<FCoroutinesHandle> FCoroutinesHandleTArray;
-  FCoroutinesHandleTArray.SetNum(10);
-  
-  FCoroutinesHandleTArray[0] = UThread::GetThreadCorotinesManage().CreateRawNoDelay(FloatDelayTime, &ClassTarget, &Class::Function, Vars);
-  FCoroutinesHandleTArray[1] = UThread::GetThreadCorotinesManage().CreateSPNoDelay(FloatDelayTime, &SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
-  FCoroutinesHandleTArray[2] = UThread::GetThreadCorotinesManage().CreateUObjectNoDelay(FloatDelayTime, UObjectClassPointer, &UObject::Function, Vars);
-  FCoroutinesHandleTArray[3] = UThread::GetThreadCorotinesManage().CreateUFunctionNoDelay(FloatDelayTime, UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
-  FCoroutinesHandleTArray[4] = UThread::GetThreadCorotinesManage().CreateLambdaNoDelay(FloatDelayTime, LambdaFunction, Vars);
-
-  FCoroutinesHandleTArray[5] = UThread::GetThreadCorotinesManage().CreateRawDelay(&ClassTarget, &Class::Function, Vars);
-  FCoroutinesHandleTArray[6] = UThread::GetThreadCorotinesManage().CreateSPDelay(&SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
-  FCoroutinesHandleTArray[7] = UThread::GetThreadCorotinesManage().CreateUObjectDelay(UObjectClassPointer, &UObject::Function, Vars);
-  FCoroutinesHandleTArray[8] = UThread::GetThreadCorotinesManage().CreateUFunctionDelay(UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
-  FCoroutinesHandleTArray[9] = UThread::GetThreadCorotinesManage().CreateLambdaDelay(LambdaFunction, Vars);
-
-  for(FCoroutinesHandle& tmp : FCoroutinesHandleTArray)
-  {
-	tmp.Pin()->Awaken();
-  }
-```
-
 ## GraphManage
 ```c++
   // 【GameThread】
@@ -137,6 +114,29 @@ UNREAL THREADMANAGE
   FGraphEventRef V = CREATE_GRAPHTASK_Lambda(IV, ENamedThreads::XXXThread,LambdaFunction, Vars);
 
   GRAPHTASK_WAITING_THREAD_COMPLETED(V)// Event
+```
+
+## CorotinesManage
+```c++
+  TArray<FCoroutinesHandle> FCoroutinesHandleTArray;
+  FCoroutinesHandleTArray.SetNum(10);
+  
+  FCoroutinesHandleTArray[0] = UThread::GetThreadCorotinesManage().CreateRawNoDelay(FloatDelayTime, &ClassTarget, &Class::Function, Vars);
+  FCoroutinesHandleTArray[1] = UThread::GetThreadCorotinesManage().CreateSPNoDelay(FloatDelayTime, &SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
+  FCoroutinesHandleTArray[2] = UThread::GetThreadCorotinesManage().CreateUObjectNoDelay(FloatDelayTime, UObjectClassPointer, &UObject::Function, Vars);
+  FCoroutinesHandleTArray[3] = UThread::GetThreadCorotinesManage().CreateUFunctionNoDelay(FloatDelayTime, UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
+  FCoroutinesHandleTArray[4] = UThread::GetThreadCorotinesManage().CreateLambdaNoDelay(FloatDelayTime, LambdaFunction, Vars);
+
+  FCoroutinesHandleTArray[5] = UThread::GetThreadCorotinesManage().CreateRawDelay(&ClassTarget, &Class::Function, Vars);
+  FCoroutinesHandleTArray[6] = UThread::GetThreadCorotinesManage().CreateSPDelay(&SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
+  FCoroutinesHandleTArray[7] = UThread::GetThreadCorotinesManage().CreateUObjectDelay(UObjectClassPointer, &UObject::Function, Vars);
+  FCoroutinesHandleTArray[8] = UThread::GetThreadCorotinesManage().CreateUFunctionDelay(UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
+  FCoroutinesHandleTArray[9] = UThread::GetThreadCorotinesManage().CreateLambdaDelay(LambdaFunction, Vars);
+
+  for(FCoroutinesHandle& tmp : FCoroutinesHandleTArray)
+  {
+	tmp.Pin()->Awaken();
+  }
 ```
 
 ## Windows
