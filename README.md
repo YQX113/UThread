@@ -3,9 +3,7 @@ Threadmanage by unreal
 
 -----
 
-[![UThread](https://www.youtube.com/watch?v=Zombenlk5VA/0.jpg)](https://www.youtube.com/watch?v=Zombenlk5VA)
-
-[![视频标题](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[![UThread](https://img.youtube.com/vi/Zombenlk5VA/0.jpg)](https://www.youtube.com/watch?v=Zombenlk5VA)
 
 ## UBTMake_API
 ```c++
