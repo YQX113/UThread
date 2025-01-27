@@ -1,5 +1,5 @@
 # UThread
-Threadmanage by unreal
+UNREAL THREADMANAGE
 
 [![UThread](https://img.youtube.com/vi/Zombenlk5VA/0.jpg)](https://www.youtube.com/watch?v=Zombenlk5VA)
 
@@ -7,11 +7,11 @@ Threadmanage by unreal
 
 ## ProxyManage
 ```c++
-  UThread::GetThreadProxyMange().CreateRawNoSuspend(&ClassTarget, &Class::Function, Vars);
-  UThread::GetThreadProxyMange().CreateSPNoSuspend(&SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
-  UThread::GetThreadProxyMange().CreateUObjectNoSuspend(UObjectClassPointer, &UObject::Function, Vars);
-  UThread::GetThreadProxyMange().CreateUFunctionNoSuspend(UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
-  UThread::GetThreadProxyMange().CreateLambdaNoSuspend(LambdaFunction, Vars);
+  UThread::GetThreadProxyMange().CreateRawNoSuspend(&ClassTarget, &Class::Function, Vars);						// Raw
+  UThread::GetThreadProxyMange().CreateSPNoSuspend(&SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);				// SP
+  UThread::GetThreadProxyMange().CreateUObjectNoSuspend(UObjectClassPointer, &UObject::Function, Vars);					// UObject
+  UThread::GetThreadProxyMange().CreateUFunctionNoSuspend(UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);	// UFunction
+  UThread::GetThreadProxyMange().CreateLambdaNoSuspend(LambdaFunction, Vars);								// Lambda
 
   //··························································································································································
 
@@ -30,3 +30,20 @@ Threadmanage by unreal
 		UThread::GetThreadProxyMange().Join(TmpThreadHandle);   // sync
 	}
 ```  
+
+## TaskManage
+```c++
+  UThread::GetThreadTaskManagement().CreateRawNoSuspend(&ClassTarget, &Class::Function, Vars);
+  UThread::GetThreadTaskManagement().CreateSPNoSuspend(&SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
+  UThread::GetThreadTaskManagement().CreateUObjectNoSuspend(UObjectClassPointer, &UObject::Function, Vars);
+  UThread::GetThreadTaskManagement().CreateUFunctionNoSuspend(UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
+  UThread::GetThreadTaskManagement().CreateLambdaNoSuspend(LambdaFunction, Vars);
+
+  //··························································································································································
+
+  UThread::GetThreadTaskManagement().CreateRawSuspend(&ClassTarget, &Class::Function, Vars);
+  UThread::GetThreadTaskManagement().CreateSPSuspend(&SPClassTarget.ToSharedRef(), &SPClass::Function, Vars);
+  UThread::GetThreadTaskManagement().CreateUObjectSuspend(UObjectClassPointer, &UObject::Function, Vars);
+  UThread::GetThreadTaskManagement().CreateUFunctionSuspend(UFunctionClassPointer, TEXT("UFunctionClass MerberFunction Name"), Vars);
+  UThread::GetThreadTaskManagement().CreateLambdaSuspend(LambdaFunction, Vars);
+```
