@@ -5,6 +5,18 @@ UNREAL THREADMANAGE
 
 -----
 
+| Manage | Characteristic | Describe |
+|:-------:|:-------:|:-------:|
+| ProxyManage | ThreadPool | When there are not enough threads in the thread pool, new threads will be created. |
+| TaskManage | ThreadPool + Task Queue | Initialize thread pool based on logical processors, refresh task queue per frame. |
+| Abandonable | UnrealThread | Sync or Async execute Delegate |
+| GraphManage | UnrealThread | Sync or Async execute Delegate, can specify dependencies and thread. |
+| CorotinesManage | Delay | Delayed execution of delegate, refresh per frame. |
+| Windows | Windows | Windows create thread execute delegate |
+| ResourceLoadingManage | File Loading | Sync or Async file loading(disk -> memory) |
+
+-----
+
 ## ProxyManage
 ```c++
   UThread::GetThreadProxyMange().CreateRawNoSuspend(&ClassTarget, &Class::Function, Vars);						// Raw
@@ -185,7 +197,6 @@ UNREAL THREADMANAGE
 
 -----
 
-| 列1   | 列2   | 列3   |
-|-------|-------|-------|
-| 内容1 | 内容2 | 内容3 |
-| 内容4 | 内容5 | 内容6 |
+
+
+
