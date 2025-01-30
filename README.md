@@ -7,7 +7,7 @@ UNREAL THREADMANAGE
 
 | Manage | Characteristic | Describe |
 |:-------:|:-------:|:-------:|
-| ProxyManage | ThreadPool | When there are not enough threads in the thread pool, new thread will be created. |
+| ProxyManage | ThreadPool | When there are not enough threads in the thread pool, new threads will be created. |
 | TaskManage | ThreadPool + Task Queue | Initialize thread pool based on logical processors, refresh task queue per frame. |
 | Abandonable | UnrealThread | Sync or Async execute Delegate |
 | GraphManage | UnrealThread | Sync or Async execute Delegate, can specify dependencies and thread. |
